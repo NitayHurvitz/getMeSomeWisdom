@@ -4,12 +4,11 @@ const sentenceContainer = document.getElementById("sentence-container")
 
 const serverAddress = "localhost"
 const serverPort = 3000
-const getSentenceRoute = "greateSentence"
 
-const getSentenceURI = `http://${serverAddress}:${serverPort}/${getSentenceRoute}`
+const getSentenceURI = `/greateSentence`
 
 function getSentenceFromServer() {
-    window.fetch(new Request(getSentenceURI))
+    window.fetch(getSentenceURI)
         .then((res) => {
             res.text().then(text => setSentence(text))
         })
